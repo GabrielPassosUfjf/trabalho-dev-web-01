@@ -68,46 +68,44 @@ lightBox.addEventListener("click", () => {
 //   }
 // });
 
-let rotacao = 0;
+// let rotacao = 0;
 
-girarEsq.addEventListener("click", () => {
-  console.log(rotacao);
-  rotacao += 90;
-  if (rotacao >= 360) {
-    rotacao = 0;
-  }
-  person.style.transform = `rotate(${rotacao}deg)`;
-});
+// girarEsq.addEventListener("click", () => {
+//   console.log(rotacao);
+//   rotacao += 90;
+//   if (rotacao >= 360) {
+//     rotacao = 0;
+//   }
+//   person.style.transform = `rotate(${rotacao}deg)`;
+// });
 
-girarDir.addEventListener("click", () => {
-  console.log(rotacao);
-  rotacao -= 90;
-  if (rotacao <= -360) {
-    rotacao = 0;
-  }
-  person.style.transform = `rotate(${rotacao}deg)`;
-});
+// girarDir.addEventListener("click", () => {
+//   console.log(rotacao);
+//   rotacao -= 90;
+//   if (rotacao <= -360) {
+//     rotacao = 0;
+//   }
+//   person.style.transform = `rotate(${rotacao}deg)`;
+// });
 
 let ccm = 0; //contadorCasaMain
 andar.addEventListener("click", () => {
   for (let i = ccm; i < 14; i++) {
     boxesMain[i].style.backgroundColor = "red";
     boxesMain[i] = andarPersonsagem();
-    
+
     startButton.addEventListener("click", () => {
-        updatePosition();
-    } )
+      updatePosition();
+    });
     ccm++;
     break;
   }
 });
 
-
 function andarPersonsagem() {
   if (rotacao === 0 || rotacao % 360 === 0) {
     if (positionY < gridSize - 1) {
       positionY++;
-    ;
     }
   } else if (rotacao === 90 || rotacao === -270) {
     if (positionX > 0) {
@@ -123,3 +121,46 @@ function andarPersonsagem() {
     }
   }
 }
+
+let rotacao = 0;
+
+function girarPersonagemEsq() {
+  console.log(rotacao);
+  rotacao += 90;
+  if (rotacao >= 360) {
+    rotacao = 0;
+  }
+}
+
+function girarPersonagemDir() {
+  console.log(rotacao);
+  rotacao -= 90;
+  if (rotacao <= -360) {
+    rotacao = 0;
+  }
+}
+girarEsq.addEventListener("click", () => {
+  for (let i = ccm; i < 14; i++) {
+    boxesMain[i].style.backgroundColor = "blue";
+    boxesMain[i] = girarPersonsagemEsq();
+    startButton.addEventListener("click", () => {
+      person.style.transform = `rotate(${rotacao}deg)`;
+    });
+    ccm++;
+    break;
+  }
+});
+
+
+girarDir.addEventListener("click", () => {
+  for (let i = ccm; i < 14; i++) {
+    boxesMain[i].style.backgroundColor = "blue";
+    boxesMain[i] = girarPersonsagemDir();
+
+    startButton.addEventListener("click", () => {
+      person.style.transform = `rotate(${rotacao}deg)`;
+    });
+    ccm++;
+    break;
+  }
+});
