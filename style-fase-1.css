@@ -1,0 +1,59 @@
+* {
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+main{
+  display:  flex;
+  gap: 2rem;
+}   
+
+.mapaContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 0fr);
+  grid-template-rows: repeat(5, 0fr);
+}
+
+.box {
+  border: 2px solid black;
+  width: 6rem;
+  height: 6rem;
+  display: grid;
+  place-items: center;
+}
+
+#startBox {
+  background-color: rgb(16, 212, 16);
+}
+
+#endBox {
+  background-color: rgb(0, 89, 255);
+}
+
+#person, #theEnd {
+  font-size: 4rem;
+  width: 5rem;
+}
+
+.buttonsTheControl {
+  margin-top: 1rem;
+}
+
+#moveButton, #girarEsq, #girarDir, #lightBox {
+  font-size: 2rem;
+  height: 6rem;
+  width: 6rem;
+}
+
+#faseButton {
+  font-size: 1.5rem;
+  display: none;
+  width: 10rem;
+  border-radius: 2rem;
+  height: 4rem;
+  margin-left: 2rem;
+}
