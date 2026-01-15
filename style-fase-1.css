@@ -7,12 +7,25 @@
   box-sizing: border-box;
 }
 
-main{
-  display:  flex;
+header {
+  color: white;
+  background-color: black;
+  width: 100vw;
+  height: 55px;
+  justify-items: center;
+}
+header > h1 {
+  padding-top: 10px;
+  font-size: 2rem;
+}
+
+main {
+  display: flex;
   gap: 2rem;
-}   
+}
 
 .mapaContainer {
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(5, 0fr);
   grid-template-rows: repeat(5, 0fr);
@@ -34,7 +47,8 @@ main{
   background-color: rgb(0, 89, 255);
 }
 
-#person, #theEnd {
+#person,
+#theEnd {
   font-size: 4rem;
   width: 5rem;
 }
@@ -43,7 +57,10 @@ main{
   margin-top: 1rem;
 }
 
-#moveButton, #girarEsq, #girarDir, #lightBox {
+#moveButton,
+#girarEsq,
+#girarDir,
+#lightBox {
   font-size: 2rem;
   height: 6rem;
   width: 6rem;
@@ -56,4 +73,43 @@ main{
   border-radius: 2rem;
   height: 4rem;
   margin-left: 2rem;
+}
+
+.mainBlock,
+.p1Block,
+.p2Block {
+  max-width: 25rem;
+  border: solid black 0.1rem;
+  margin-top: 1rem;
+  
+}
+
+.mainBlock > h1,
+.p1Block > h1,
+.p2Block > h1 {
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(123, 123, 123);
+  width: calc(100% -4px);
+  height: 18px;
+  padding: 4px;
+}
+
+.boxMain,
+.boxP1,
+.boxP2 {
+  border: 2px solid black;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  padding: 0px;
+}
+
+#startExec {
+  font-size: 1.5rem;
+  background-color: rgb(7, 226, 36);
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: solid black 1px;
 }
