@@ -102,6 +102,7 @@ andar.addEventListener("click", () => {
   }
 });
 
+
 function andarPersonsagem() {
   if (rotacao === 0 || rotacao % 360 === 0) {
     if (positionY < gridSize - 1) {
