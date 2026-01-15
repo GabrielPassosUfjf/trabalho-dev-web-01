@@ -60,10 +60,12 @@ main {
 #moveButton,
 #girarEsq,
 #girarDir,
-#lightBox {
+#lightButton,
+#p1Button,
+#p2Button {
   font-size: 2rem;
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
 }
 
 #faseButton {
@@ -112,4 +114,14 @@ main {
   height: 3rem;
   border-radius: 1rem;
   border: solid black 1px;
+}
+
+.return {
+    margin-top: 1rem;
+}
+
+.return > a > button {
+    width: 8rem;
+    height: 2rem;
+    
 }

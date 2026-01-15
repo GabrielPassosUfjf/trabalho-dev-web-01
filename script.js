@@ -1,7 +1,7 @@
 const andar = document.getElementById("moveButton");
 const girarEsq = document.getElementById("girarEsq");
 const girarDir = document.getElementById("girarDir");
-const lightBox = document.getElementById("lightBox");
+const lightBox = document.getElementById("lightButton");
 const fasetButton = document.getElementById("faseButton");
 
 const boxes = document.querySelectorAll(".box"); //transforma os elementos em um array
