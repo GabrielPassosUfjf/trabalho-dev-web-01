@@ -89,18 +89,7 @@ lightBox.addEventListener("click", () => {
 // });
 
 let ccm = 0; //contadorCasaMain
-andar.addEventListener("click", () => {
-  for (let i = ccm; i < 14; i++) {
-    boxesMain[i].style.backgroundColor = "red";
-    boxesMain[i] = andarPersonsagem();
-
-    startButton.addEventListener("click", () => {
-      updatePosition();
-    });
-    ccm++;
-    break;
-  }
-});
+let rotacao = 0;
 
 function andarPersonsagem() {
   if (rotacao === 0 || rotacao % 360 === 0) {
@@ -122,10 +111,7 @@ function andarPersonsagem() {
   }
 }
 
-let rotacao = 0;
-
 function girarPersonagemEsq() {
-  console.log(rotacao);
   rotacao += 90;
   if (rotacao >= 360) {
     rotacao = 0;
@@ -139,10 +125,24 @@ function girarPersonagemDir() {
     rotacao = 0;
   }
 }
+
+andar.addEventListener("click", () => {
+  for (let i = ccm; i < 14; i++) {
+    boxesMain[i].style.backgroundColor = "red";
+    boxesMain[i] = andarPersonsagem();
+
+    startButton.addEventListener("click", () => {
+      updatePosition();
+    });
+    ccm++;
+    break;
+  }
+});
+
 girarEsq.addEventListener("click", () => {
   for (let i = ccm; i < 14; i++) {
     boxesMain[i].style.backgroundColor = "blue";
-    boxesMain[i] = girarPersonsagemEsq();
+    boxesMain[i] = girarPersonagemEsq();
     startButton.addEventListener("click", () => {
       person.style.transform = `rotate(${rotacao}deg)`;
     });
@@ -151,12 +151,10 @@ girarEsq.addEventListener("click", () => {
   }
 });
 
-
 girarDir.addEventListener("click", () => {
   for (let i = ccm; i < 14; i++) {
     boxesMain[i].style.backgroundColor = "blue";
-    boxesMain[i] = girarPersonsagemDir();
-
+    boxesMain[i] = girarPersonagemDir();
     startButton.addEventListener("click", () => {
       person.style.transform = `rotate(${rotacao}deg)`;
     });
