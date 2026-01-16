@@ -26,17 +26,7 @@ let boxIllumination = 0;
 function updatePosition() {
   const loc = positionY * gridSize + positionX;
   boxes[loc].appendChild(person);
-  if (boxes[loc] === boxes[22]) {
-    alert("Parabéns! Você consigou pegar a fruta!");
-    andar.style.display = "none";
-    girarDir.style.display = "none";
-    girarEsq.style.display = "none";
-    faseButton.style.display = "inline-block";
-    theEnd.style.display = "none";
-    p1Button.style.display = "none";
-    p2Button.style.display = "none";
-    lightBox.style.display = "none";
-  }
+  
   boxIllumination = boxes[loc];
 }
 
@@ -126,39 +116,84 @@ function girarPersonagemDir() {
   }
 }
 
+// andar.addEventListener("click", () => {
+//   for (let i = ccm; i < 14; i++) {
+//     boxesMain[i].style.backgroundColor = "red";
+//     boxesMain[i] = andarPersonsagem();
+
+//     startButton.addEventListener("click", () => {
+//       updatePosition();
+//     });
+//     ccm++;
+//     break;
+//   }
+// });
+
+// girarEsq.addEventListener("click", () => {
+//   for (let i = ccm; i < 14; i++) {
+//     boxesMain[i].style.backgroundColor = "blue";
+//     boxesMain[i] = girarPersonagemEsq();
+//     startButton.addEventListener("click", () => {
+//       person.style.transform = `rotate(${rotacao}deg)`;
+//     });
+//     ccm++;
+//     break;
+//   }
+// });
+
+// girarDir.addEventListener("click", () => {
+//   for (let i = ccm; i < 14; i++) {
+//     boxesMain[i].style.backgroundColor = "blue";
+//     boxesMain[i] = girarPersonagemDir();
+//     startButton.addEventListener("click", () => {
+//       person.style.transform = `rotate(${rotacao}deg)`;
+//     });
+//     ccm++;
+//     break;
+//   }
+// });
+
+let comandos = [];
+
+function adicionarCmd(funcao, cor) {
+  if (ccm < boxesMain.length) {
+    comandos.push(funcao);
+    boxesMain[ccm].style.backgroundColor = cor;
+    ccm++;
+  }
+}
+
 andar.addEventListener("click", () => {
-  for (let i = ccm; i < 14; i++) {
-    boxesMain[i].style.backgroundColor = "red";
-    boxesMain[i] = andarPersonsagem();
-
-    startButton.addEventListener("click", () => {
-      updatePosition();
-    });
-    ccm++;
-    break;
-  }
+  adicionarCmd(andarPersonsagem, "red");
 });
-
 girarEsq.addEventListener("click", () => {
-  for (let i = ccm; i < 14; i++) {
-    boxesMain[i].style.backgroundColor = "blue";
-    boxesMain[i] = girarPersonagemEsq();
-    startButton.addEventListener("click", () => {
-      person.style.transform = `rotate(${rotacao}deg)`;
-    });
-    ccm++;
-    break;
-  }
+  adicionarCmd(girarPersonagemEsq, "blue");
+});
+girarDir.addEventListener("click", () => {
+  adicionarCmd(girarPersonagemDir, "blue");
 });
 
-girarDir.addEventListener("click", () => {
-  for (let i = ccm; i < 14; i++) {
-    boxesMain[i].style.backgroundColor = "blue";
-    boxesMain[i] = girarPersonagemDir();
-    startButton.addEventListener("click", () => {
+startButton.addEventListener("click", () => {
+  let i = 0;
+
+  const intervalo = setInterval(() => {
+    if (i < comandos.length) {
+      comandos[i]();
+      updatePosition();
       person.style.transform = `rotate(${rotacao}deg)`;
-    });
-    ccm++;
-    break;
-  }
+      i++;
+    } else {
+      clearInterval;
+      comandos = [];
+    }
+  }, 500);
+
+  andar.style.display = "none";
+    girarDir.style.display = "none";
+    girarEsq.style.display = "none";
+    faseButton.style.display = "inline-block";
+    theEnd.style.display = "none";
+    p1Button.style.display = "none";
+    p2Button.style.display = "none";
+    lightBox.style.display = "none";
 });
