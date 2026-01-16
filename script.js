@@ -26,13 +26,9 @@ let boxIllumination = 0;
 function updatePosition() {
   const loc = positionY * gridSize + positionX;
   boxes[loc].appendChild(person);
-  
+
   boxIllumination = boxes[loc];
 }
-
-lightBox.addEventListener("click", () => {
-  boxIllumination.style.backgroundColor = "yellow";
-});
 
 // andar.addEventListener("click", () => {
 //   if (rotacao === 0 || rotacao % 360 === 0) {
@@ -115,6 +111,9 @@ function girarPersonagemDir() {
     rotacao = 0;
   }
 }
+function acenderCasa() {
+  boxIllumination.style.backgroundColor = "yellow";
+}
 
 // andar.addEventListener("click", () => {
 //   for (let i = ccm; i < 14; i++) {
@@ -173,6 +172,10 @@ girarDir.addEventListener("click", () => {
   adicionarCmd(girarPersonagemDir, "blue");
 });
 
+lightBox.addEventListener("click", () => {
+  adicionarCmd(acenderCasa, "yellow");
+});
+
 startButton.addEventListener("click", () => {
   let i = 0;
 
@@ -189,11 +192,12 @@ startButton.addEventListener("click", () => {
   }, 500);
 
   andar.style.display = "none";
-    girarDir.style.display = "none";
-    girarEsq.style.display = "none";
-    faseButton.style.display = "inline-block";
-    theEnd.style.display = "none";
-    p1Button.style.display = "none";
-    p2Button.style.display = "none";
-    lightBox.style.display = "none";
+  girarDir.style.display = "none";
+  girarEsq.style.display = "none";
+  faseButton.style.display = "inline-block";
+  theEnd.style.display = "none";
+  p1Button.style.display = "none";
+  p2Button.style.display = "none";
+  lightBox.style.display = "none";
+  startButton.style.display = "none";
 });
