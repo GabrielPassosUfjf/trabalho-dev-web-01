@@ -154,7 +154,7 @@ function acenderCasa() {
 
 let comandos = [];
 
-function adicionarCmd(funcao, cor) {
+function adicionarComandosMain(funcao, cor) {
   if (ccm < boxesMain.length) {
     comandos.push(funcao);
     boxesMain[ccm].style.backgroundColor = cor;
@@ -163,17 +163,17 @@ function adicionarCmd(funcao, cor) {
 }
 
 andar.addEventListener("click", () => {
-  adicionarCmd(andarPersonsagem, "red");
+  adicionarComandosMain(andarPersonsagem, "red");
 });
 girarEsq.addEventListener("click", () => {
-  adicionarCmd(girarPersonagemEsq, "blue");
+  adicionarComandosMain(girarPersonagemEsq, "blue");
 });
 girarDir.addEventListener("click", () => {
-  adicionarCmd(girarPersonagemDir, "blue");
+  adicionarComandosMain(girarPersonagemDir, "blue");
 });
 
 lightBox.addEventListener("click", () => {
-  adicionarCmd(acenderCasa, "yellow");
+  adicionarComandosMain(acenderCasa, "yellow");
 });
 
 startButton.addEventListener("click", () => {
@@ -201,3 +201,28 @@ startButton.addEventListener("click", () => {
   lightBox.style.display = "none";
   startButton.style.display = "none";
 });
+
+const optionMain = document.getElementById("optionMain");
+const optionP1 = document.getElementById("optionP1");
+const optionP2 = document.getElementById("optionP2");
+
+optionMain.addEventListener("click", () => {
+  verificarOptionDep();
+});
+optionP1.addEventListener("click", () => {
+  verificarOptionDep();
+});
+optionP2.addEventListener("click", () => {
+  verificarOptionDep();
+});
+
+function verificarOptionDep() {
+  const selecionado = document.querySelector('input[name="dep"]:checked');
+  if (selecionado === optionMain || !selecionado) {
+    return optionMain;
+  } else if (selecionado === optionP1) {
+    return optionP1
+  } else if (selecionado === optionP2) {
+    return optionP2
+  } 
+}
