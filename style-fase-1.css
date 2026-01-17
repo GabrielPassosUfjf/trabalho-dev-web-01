@@ -37,14 +37,15 @@ main {
   height: 6rem;
   display: grid;
   place-items: center;
+  background-color: rgb(208, 209, 210);
 }
 
 #startBox {
-  background-color: rgb(16, 212, 16);
+  background-color: rgb(68, 68, 68);
 }
 
 #endBox {
-  background-color: rgb(0, 89, 255);
+  background-color: rgb(255, 0, 0);
 }
 
 #person,

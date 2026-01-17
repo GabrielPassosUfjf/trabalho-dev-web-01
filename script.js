@@ -10,7 +10,7 @@ const startButton = document.getElementById("startExec");
 const boxes = document.querySelectorAll(".box"); //transforma os elementos em um array
 const boxesMain = document.querySelectorAll(".boxMain");
 const boxesP1 = document.querySelectorAll(".boxP1");
-const boxesP2 = document.querySelectorAll("boxP2");
+const boxesP2 = document.querySelectorAll(".boxP2");
 const person = document.getElementById("person");
 
 const theEnd = document.getElementById("theEnd");
@@ -74,7 +74,6 @@ function updatePosition() {
 //   person.style.transform = `rotate(${rotacao}deg)`;
 // });
 
-let ccm = 0; //contadorCasaMain
 let rotacao = 0;
 
 function andarPersonsagem() {
@@ -152,7 +151,12 @@ function acenderCasa() {
 //   }
 // });
 
+let ccm = 0; //contadorCasaMain
+let ccp1 = 0; //contadorCasaP1
+let ccp2 = 0; //contadorCasaP2
 let comandos = [];
+let comandosP1 = [];
+let comandosP2 = [];
 
 function adicionarComandosMain(funcao, cor) {
   if (ccm < boxesMain.length) {
@@ -162,19 +166,65 @@ function adicionarComandosMain(funcao, cor) {
   }
 }
 
+function adicionarComandosP1(funcao, cor) {
+  if (ccp1 < boxesP1.length) {
+    comandosP1.push(funcao);
+    boxesP1[ccp1].style.backgroundColor = cor;
+    ccp1++;
+  }
+}
+
+function adicionarComandosP2(funcao, cor) {
+  if (ccp2 < boxesP2.length) {
+    comandosP2.push(funcao);
+    boxesP2[ccp2].style.backgroundColor = cor;
+    ccp2++;
+  }
+}
+
 andar.addEventListener("click", () => {
-  adicionarComandosMain(andarPersonsagem, "red");
+  if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(andarPersonsagem, "red");
+  } else if (verificarOptionDep() === optionP1) {
+    adicionarComandosP1(andarPersonsagem, "red");
+  } else if (verificarOptionDep() === optionP2) {
+    adicionarComandosP2(andarPersonsagem, "red");
+  } else {
+    alert("Escolha entre: Main, P1 e P2")
+  }
 });
 girarEsq.addEventListener("click", () => {
-  adicionarComandosMain(girarPersonagemEsq, "blue");
+    if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(girarPersonagemEsq, "blue");
+  } else if (verificarOptionDep() === optionP1) {
+    adicionarComandosP1(girarPersonagemEsq, "blue");
+  } else if (verificarOptionDep() === optionP2) {
+    adicionarComandosP2(girarPersonagemEsq, "blue");
+  } else {
+    alert("Escolha entre: Main, P1 e P2")
+  }
 });
 girarDir.addEventListener("click", () => {
-  adicionarComandosMain(girarPersonagemDir, "blue");
+    if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(girarPersonagemDir, "blue");
+  } else if (verificarOptionDep() === optionP1) {
+    adicionarComandosP1(girarPersonagemDir, "blue");
+  } else if (verificarOptionDep() === optionP2) {
+    adicionarComandosP2(girarPersonagemDir, "blue");
+  } else {
+    alert("Escolha entre: Main, P1 e P2")
+  }
 });
-
 lightBox.addEventListener("click", () => {
-  adicionarComandosMain(acenderCasa, "yellow");
-});
+   if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(acenderCasa, "yellow");
+  } else if (verificarOptionDep() === optionP1) {
+    adicionarComandosP1(acenderCasa, "yellow");
+  } else if (verificarOptionDep() === optionP2) {
+    adicionarComandosP2(acenderCasa, "yellow");
+  } else {
+    alert("Escolha entre: Main, P1 e P2")
+}});
 
 startButton.addEventListener("click", () => {
   let i = 0;
@@ -218,11 +268,13 @@ optionP2.addEventListener("click", () => {
 
 function verificarOptionDep() {
   const selecionado = document.querySelector('input[name="dep"]:checked');
-  if (selecionado === optionMain || !selecionado) {
+  if (selecionado === optionMain) {
     return optionMain;
   } else if (selecionado === optionP1) {
-    return optionP1
+    return optionP1;
   } else if (selecionado === optionP2) {
-    return optionP2
-  } 
+    return optionP2;
+  } else {
+    return false;
+  }
 }
