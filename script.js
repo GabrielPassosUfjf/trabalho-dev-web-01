@@ -72,7 +72,6 @@ function girarPersonagemEsq() {
 }
 
 function girarPersonagemDir() {
-  console.log(rotacao);
   rotacao -= 90;
   if (rotacao <= -360) {
     rotacao = 0;
@@ -92,6 +91,7 @@ let comandosP2 = [];
 
 function callP1() {
   let i = 0;
+  
   const intervaloP1 = setInterval(() => {
     if (i < comandosP1.length) {
       comandosP1[i]();       
@@ -186,6 +186,7 @@ p1Button.addEventListener("click", () => {
 
 
 
+
 startButton.addEventListener("click", () => {
   let i = 0;
   const intervalo = setInterval(() => {
@@ -198,7 +199,7 @@ startButton.addEventListener("click", () => {
       person.style.transform = `rotate(${rotacao}deg)`;
       i++;
     } else {
-      clearInterval;
+      clearInterval(intervalo);
       comandos = [];
     }
   }, 500);
