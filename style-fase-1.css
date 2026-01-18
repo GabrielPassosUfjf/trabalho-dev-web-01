@@ -12,7 +12,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-   background-attachment: fixed;
+  background-attachment: fixed;
 }
 
 header {
@@ -26,17 +26,16 @@ header > h1 {
 }
 
 main {
-  max-width: 80%;
+  padding: 0px 10rem;
   margin: auto;
 }
 
 .mainFase {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   gap: 6rem;
-  margin-top: 2rem ;
+  margin-top: 2rem;
 }
-
 
 .mapaContainer {
   display: grid;
@@ -54,16 +53,19 @@ main {
 }
 
 #startBox {
-  background-color: rgba(255, 255, 255, 0.700);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #endBox {
-  background-color: rgba(255, 255, 255, 0.800);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-#person,
+#person{
+width: 5rem;
+}
+
 #theEnd {
-  width: 5rem;
+  width: 4rem;
 }
 
 #theEnd {
@@ -82,20 +84,20 @@ main {
   }
 }
 
-.buttonsTheControl{
+.buttonsTheControl {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.600);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .optionsDep {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.600);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem;
   border-radius: 10px;
 }
@@ -114,16 +116,16 @@ main {
 }
 
 #moveButton:hover,
-#girarEsq:hover ,
-#girarDir:hover ,
-#lightButton:hover ,
+#girarEsq:hover,
+#girarDir:hover,
+#lightButton:hover,
 #p1Button:hover,
-#p2Button:hover  {
+#p2Button:hover {
   background-color: #ffffffd7;
   font-size: 3rem;
   height: 5.5rem;
   width: 5.5rem;
-  transform: translate(0px,-4px );
+  transform: translate(0px, -4px);
   border-radius: 5px;
   cursor: p;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
@@ -154,7 +156,7 @@ button > i {
 }
 
 .titleMain > h1,
-.titleP1> h1,
+.titleP1 > h1,
 .titleP2 > h1 {
   font-size: 1rem;
   color: white;
@@ -165,10 +167,10 @@ button > i {
 
 .containerMain,
 .containerP1,
-.containerP2  {
+.containerP2 {
   display: flex;
-  flex-wrap: wrap;           
-  justify-content: center;   
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .boxMain,
@@ -179,13 +181,12 @@ button > i {
   height: 3.2rem;
   display: inline-block;
   padding: 0px;
-  
 }
 
 .buttonsBlock {
   display: flex;
   max-width: 22.6rem;
-  gap: 1rem   ;
+  gap: 1rem;
 }
 
 #startExec {
@@ -198,9 +199,9 @@ button > i {
   cursor: pointer;
 }
 
-#startExec:hover{
-  background-color: #0ae928 ;
-  transform: translate(-2px,-2px);
+#startExec:hover {
+  background-color: #0ae928;
+  transform: translate(-2px, -2px);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
 }
 
@@ -214,31 +215,179 @@ button > i {
   border: solid rgb(0, 0, 0) 2px;
 }
 
-#returnButton:hover{
-  background-color: #cac7c7 ;
-  transform: translate(-2px,-2px);
+#returnButton:hover {
+  background-color: #cac7c7;
+  transform: translate(-2px, -2px);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
 }
 
-.optionsDep > p, .optionsDep > label  {
+.optionsDep {
+  margin-bottom: 2rem;
+}
+
+.optionsDep > p,
+.optionsDep > label {
   color: white;
   font-size: 1.5rem;
   font-weight: normal;
   padding: 2px;
-  margin:0rem 2rem 0rem 1rem;
+  margin: 0rem 2rem 0rem 1rem;
 }
 
 input[type="radio"] {
-  width: 2rem;      
+  width: 2rem;
   height: 2rem;
-  border-radius: 50%; 
-  accent-color: #1500ff; 
+  border-radius: 50%;
+  accent-color: #1500ff;
   cursor: pointer;
 }
-
-
 
 .return > a > button {
   width: 8rem;
   height: 2rem;
+}
+
+@media (max-width: 955px) {
+  main {
+    padding: 0px 1rem;
+    margin: auto;
+  }
+  .mainFase {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 865px) {
+  .mainFase {
+    gap: 3rem;
+  }
+  .box {
+    width: 4rem;
+    height: 4em;
+  }
+  #person,
+  #theEnd {
+    width: 3rem;
+  }
+  .boxMain,
+  .boxP1,
+  .boxP2 {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    padding: 0px;
+  }
+  .mainBlock,
+  .p1Block,
+  .p2Block {
+    max-width: 14.2rem;
+    border: solid black 0.1rem;
+    margin-bottom: 1rem;
+  }
+  #startExec {
+    font-size: 1rem;
+    width: 5rem;
+    height: 1.5rem;
+  }
+  #startExec:hover {
+    background-color: #0ae928;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+  }
+  #returnButton {
+    font-size: 1rem;
+    width: 5rem;
+    height: 1.5rem;
+  }
+  #returnButton:hover {
+    background-color: #cac7c7;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+  }
+}
+
+@media (max-width: 690px) {
+  .optionsDep > p,
+  .optionsDep > label {
+    font-size: 1rem;
+    padding: 2px;
+    margin: 0rem 2rem 0rem 1rem;
+  }
+  input[type="radio"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  accent-color: #1500ff;
+  cursor: pointer;
+}
+}
+
+@media (max-width: 630px){
+   .mainFase {
+    display: grid;
+  }
+  .mainBlock,
+  .p1Block,
+  .p2Block {
+    max-width: 20rem;
+} 
+
+.boxMain,
+.boxP1,
+.boxP2 {
+  background-color: #00000096;
+  width: 1.412rem;
+  height: 1.412rem;
+  display: inline-block;
+  padding: 0px;
+}
+.buttonsTheControl{
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  grid-template-rows: repeat(2, 0fr);
+}
+#moveButton,
+#girarEsq,
+#girarDir,
+#lightButton,
+#p1Button,
+#p2Button {
+  background-color: #ffffff96;
+  font-size: 2rem;
+  height: 4rem;
+  width: 4rem;
+}
+#moveButton:hover,
+#girarEsq:hover,
+#girarDir:hover,
+#lightButton:hover,
+#p1Button:hover,
+#p2Button:hover {
+  font-size: 2rem;
+  background-color: #ffffffd7;
+  height: 4rem;
+  width: 4rem;
+  transform: translate(0px, -4px);
+  border-radius: 5px;
+
+
+}
+button > i {
+  font-size: 2rem;
+}
+.optionsDep > p {
+  display: none;
+}
+.optionsDep > label {
+  font-size: 1.5rem;
+  margin: 0px 15px 0px 5px;
+}
+input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  accent-color: #1500ff;
+  cursor: pointer;
+}
+
 }
