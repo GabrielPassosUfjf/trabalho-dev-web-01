@@ -90,18 +90,10 @@ let comandosP1 = [];
 let comandosP2 = [];
 
 function callP1() {
-  let i = 0;
-  
-  const intervaloP1 = setInterval(() => {
-    if (i < comandosP1.length) {
-      comandosP1[i]();       
-      updatePosition();      
-      person.style.transform = `rotate(${rotacao}deg)`;
-      i++;
-    } else {
-      clearInterval(intervaloP1);
-    }
-  }, 500);
+  return comandosP1;
+}
+function callP2() {
+  return comandosP2;
 }
 
 function adicionarComandosMain(funcao, cor) {
@@ -174,7 +166,7 @@ lightBox.addEventListener("click", () => {
 });
 p1Button.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(callP1, "pink");
+    adicionarComandosMain(() => callP1(), "pink");
   } else if (verificarOptionDep() === optionP1) {
     alert("É posivel adicionar P1 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
@@ -183,24 +175,37 @@ p1Button.addEventListener("click", () => {
     alert("Escolha entre: Main, P1 e P2");
   }
 });
-
-
-
+p2Button.addEventListener("click", () => {
+  if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(() => callP2(), "pink");
+  } else if (verificarOptionDep() === optionP1) {
+    alert("É posivel adicionar P2 somente na Main");
+  } else if (verificarOptionDep() === optionP2) {
+    alert("É posivel adicionar P2 somente na Main");
+  } else {
+    alert("Escolha entre: Main, P1 e P2");
+  }
+});
 
 startButton.addEventListener("click", () => {
   let i = 0;
+  let filaExec = [...comandos];
   const intervalo = setInterval(() => {
-    if (i < comandos.length) {
-      if(comandos[i]){
+    if (i >= filaExec.length) {
+      clearInterval(intervalo);
+      return;
+    } else {
+      const cmd = filaExec[i];
+      const result = cmd();
 
+      if (Array.isArray(result)) {
+        filaExec.splice(i, 1, ...result);
+        return;
       }
-      comandos[i]();
+
       updatePosition();
       person.style.transform = `rotate(${rotacao}deg)`;
       i++;
-    } else {
-      clearInterval(intervalo);
-      comandos = [];
     }
   }, 500);
 
