@@ -24,7 +24,7 @@ let positionX = 0;
 let positionY = 0;
 const gridSize = 5;
 
-boxes[0].appendChild(person);
+//boxes[0].appendChild(person);
 
 let boxIllumination = 0;
 let rotacao = 0;
@@ -45,7 +45,7 @@ function updatePosition() {
 }
 
 function andarPersonsagem() {
-  if (rotacao === 0 || rotacao % 360 === 0) {
+  if (rotacao === 0) {
     if (positionY < gridSize - 1) {
       positionY++;
     }
@@ -166,7 +166,7 @@ lightBox.addEventListener("click", () => {
 });
 p1Button.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(() => callP1(), "pink");
+    adicionarComandosMain(callP1, "pink");
   } else if (verificarOptionDep() === optionP1) {
     alert("É posivel adicionar P1 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
@@ -177,7 +177,7 @@ p1Button.addEventListener("click", () => {
 });
 p2Button.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(() => callP2(), "pink");
+    adicionarComandosMain(callP2, "pink");
   } else if (verificarOptionDep() === optionP1) {
     alert("É posivel adicionar P2 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
