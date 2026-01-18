@@ -7,25 +7,38 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(Imagens/fundo-mapa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+
 header {
   color: white;
   background-color: black;
-  width: 100vw;
-  height: 55px;
   justify-items: center;
+  padding: 1rem;
 }
 header > h1 {
-  padding-top: 10px;
   font-size: 2rem;
 }
 
 main {
-  display: flex;
-  gap: 2rem;
+  max-width: 80%;
+  margin: auto;
 }
 
+.mainFase {
+  display: flex;
+  justify-content: center; 
+  gap: 6rem;
+  margin-top: 2rem ;
+}
+
+
 .mapaContainer {
-  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(5, 0fr);
   grid-template-rows: repeat(5, 0fr);
@@ -33,19 +46,19 @@ main {
 
 .box {
   border: 2px solid black;
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 6rem;
+  height: 6em;
   display: grid;
   place-items: center;
-  background-color: rgb(208, 209, 210);
+  background-color: rgba(255, 255, 255, 0.508);
 }
 
 #startBox {
-  background-color: rgb(68, 68, 68);
+  background-color: rgba(255, 255, 255, 0.700);
 }
 
 #endBox {
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 0.800);
 }
 
 #person,
@@ -69,8 +82,22 @@ main {
   }
 }
 
-.buttonsTheControl {
-  margin-top: 1rem;
+.buttonsTheControl{
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.600);
+}
+.optionsDep {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.600);
+  padding: 0.5rem;
+  border-radius: 10px;
 }
 
 #moveButton,
@@ -79,9 +106,33 @@ main {
 #lightButton,
 #p1Button,
 #p2Button {
-  font-size: 2rem;
+  background-color: #ffffff96;
+  font-size: 3rem;
   height: 5rem;
   width: 5rem;
+  border-radius: 5px;
+}
+
+#moveButton:hover,
+#girarEsq:hover ,
+#girarDir:hover ,
+#lightButton:hover ,
+#p1Button:hover,
+#p2Button:hover  {
+  background-color: #ffffffd7;
+  font-size: 3rem;
+  height: 5.5rem;
+  width: 5.5rem;
+  transform: translate(0px,-4px );
+  border-radius: 5px;
+  cursor: p;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+}
+
+button > i {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
 #faseButton,
@@ -97,44 +148,95 @@ main {
 .mainBlock,
 .p1Block,
 .p2Block {
-  max-width: 25rem;
+  max-width: 22.6rem;
   border: solid black 0.1rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.mainBlock > h1,
-.p1Block > h1,
-.p2Block > h1 {
+.titleMain > h1,
+.titleP1> h1,
+.titleP2 > h1 {
   font-size: 1rem;
   color: white;
-  background-color: rgb(123, 123, 123);
-  width: calc(100% -4px);
-  height: 18px;
-  padding: 4px;
+  text-transform: uppercase;
+  background-color: rgb(0, 0, 0);
+  padding: 2px 10px;
+}
+
+.containerMain,
+.containerP1,
+.containerP2  {
+  display: flex;
+  flex-wrap: wrap;           
+  justify-content: center;   
 }
 
 .boxMain,
 .boxP1,
 .boxP2 {
-  border: 2px solid black;
-  width: 3rem;
-  height: 3rem;
+  background-color: #00000096;
+  width: 3.2rem;
+  height: 3.2rem;
   display: inline-block;
   padding: 0px;
+  
+}
+
+.buttonsBlock {
+  display: flex;
+  max-width: 22.6rem;
+  gap: 1rem   ;
 }
 
 #startExec {
   font-size: 1.5rem;
-  background-color: rgb(7, 226, 36);
+  background-color: #0ed028;
   width: 10rem;
   height: 3rem;
   border-radius: 1rem;
   border: solid black 1px;
+  cursor: pointer;
 }
 
-.return {
-  margin-top: 1rem;
+#startExec:hover{
+  background-color: #0ae928 ;
+  transform: translate(-2px,-2px);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
 }
+
+#returnButton {
+  font-size: 1.5rem;
+  background-color: #b7b3b3;
+  width: 11.7rem;
+  height: 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: solid rgb(0, 0, 0) 2px;
+}
+
+#returnButton:hover{
+  background-color: #cac7c7 ;
+  transform: translate(-2px,-2px);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+}
+
+.optionsDep > p, .optionsDep > label  {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 2px;
+  margin:0rem 2rem 0rem 1rem;
+}
+
+input[type="radio"] {
+  width: 2rem;      
+  height: 2rem;
+  border-radius: 50%; 
+  accent-color: #1500ff; 
+  cursor: pointer;
+}
+
+
 
 .return > a > button {
   width: 8rem;
