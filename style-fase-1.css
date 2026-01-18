@@ -33,8 +33,8 @@ main {
 
 .box {
   border: 2px solid black;
-  width: 6rem;
-  height: 6rem;
+  width: 6.5rem;
+  height: 6.5rem;
   display: grid;
   place-items: center;
   background-color: rgb(208, 209, 210);
@@ -50,8 +50,23 @@ main {
 
 #person,
 #theEnd {
-  font-size: 4rem;
   width: 5rem;
+}
+
+#theEnd {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .buttonsTheControl {
@@ -69,7 +84,8 @@ main {
   width: 5rem;
 }
 
-#faseButton , #retryButton {
+#faseButton,
+#retryButton {
   font-size: 1.5rem;
   display: none;
   width: 10rem;
@@ -84,7 +100,6 @@ main {
   max-width: 25rem;
   border: solid black 0.1rem;
   margin-top: 1rem;
-  
 }
 
 .mainBlock > h1,
@@ -118,12 +133,10 @@ main {
 }
 
 .return {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .return > a > button {
-    width: 8rem;
-    height: 2rem;
-    
+  width: 8rem;
+  height: 2rem;
 }
-

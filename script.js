@@ -122,11 +122,11 @@ function adicionarComandosP2(funcao, cor) {
 
 andar.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(andarPersonsagem, "red");
+    adicionarComandosMain(andarPersonsagem, "green");
   } else if (verificarOptionDep() === optionP1) {
-    adicionarComandosP1(andarPersonsagem, "red");
+    adicionarComandosP1(andarPersonsagem, "green");
   } else if (verificarOptionDep() === optionP2) {
-    adicionarComandosP2(andarPersonsagem, "red");
+    adicionarComandosP2(andarPersonsagem, "green");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
