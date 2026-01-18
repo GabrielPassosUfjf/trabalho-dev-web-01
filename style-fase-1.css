@@ -60,12 +60,9 @@ main {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#person{
-width: 5rem;
-}
-
+#person,
 #theEnd {
-  width: 4rem;
+  width: 5rem;
 }
 
 #theEnd {

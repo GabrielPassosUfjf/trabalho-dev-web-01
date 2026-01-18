@@ -36,6 +36,7 @@ function updatePosition() {
   boxIllumination = boxes[loc];
 
   if (loc === 22) {
+    theEnd.style.display = "none";
     setTimeout(() => {
       alert("🎉 Parabéns! Você chegou ao final!");
       faseButton.style.display = "inline-block";
@@ -213,7 +214,6 @@ startButton.addEventListener("click", () => {
   andar.style.display = "none";
   girarDir.style.display = "none";
   girarEsq.style.display = "none";
-  theEnd.style.display = "none";
   p1Button.style.display = "none";
   p2Button.style.display = "none";
   lightBox.style.display = "none";
