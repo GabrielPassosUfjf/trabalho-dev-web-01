@@ -7,6 +7,7 @@ const faseButton = document.getElementById("faseButton");
 const p1Button = document.getElementById("p1Button");
 const p2Button = document.getElementById("p2Button");
 const startButton = document.getElementById("startExec");
+const returnButton = document.getElementById("returnButton")
 
 const optionMain = document.getElementById("optionMain");
 const optionP1 = document.getElementById("optionP1");
@@ -218,6 +219,7 @@ startButton.addEventListener("click", () => {
   p2Button.style.display = "none";
   lightBox.style.display = "none";
   startButton.style.display = "none";
+  returnButton.style.display = "none"
 });
 
 optionMain.addEventListener("click", () => {
