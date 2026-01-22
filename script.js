@@ -98,77 +98,101 @@ function callP2() {
   return comandosP2;
 }
 
-function adicionarComandosMain(funcao, cor) {
+function adicionarComandosMain(funcao, cor, iconClass) {
   if (ccm < boxesMain.length) {
     comandos.push(funcao);
     boxesMain[ccm].style.backgroundColor = cor;
+
+    if (iconClass === "p1") {
+      boxesMain[ccm].innerHTML = "P1 ";
+    } else if (iconClass === "p2") {
+      boxesMain[ccm].innerHTML = "P2"
+    } else {
+
+      const icon = document.createElement("i");
+      icon.classList.add("bi", iconClass, "icon-comando");
+
+      boxesMain[ccm].appendChild(icon);
+    }
     ccm++;
   }
 }
 
-function adicionarComandosP1(funcao, cor) {
+
+
+function adicionarComandosP1(funcao, cor, iconClass) {
   if (ccp1 < boxesP1.length) {
     comandosP1.push(funcao);
     boxesP1[ccp1].style.backgroundColor = cor;
+
+    const icon = document.createElement("i");
+    icon.classList.add("bi", iconClass, "icon-comando");
+
+    boxesP1[ccp1].appendChild(icon);
     ccp1++;
   }
 }
 
-function adicionarComandosP2(funcao, cor) {
+function adicionarComandosP2(funcao, cor, iconClass) {
   if (ccp2 < boxesP2.length) {
     comandosP2.push(funcao);
     boxesP2[ccp2].style.backgroundColor = cor;
+
+    const icon = document.createElement("i");
+    icon.classList.add("bi", iconClass, "icon-comando");
+
+    boxesP2[ccp2].appendChild(icon);
     ccp2++;
   }
 }
 
 andar.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(andarPersonsagem, "green");
+    adicionarComandosMain(andarPersonsagem, "#7c7c7c96", "bi-arrow-up");
   } else if (verificarOptionDep() === optionP1) {
-    adicionarComandosP1(andarPersonsagem, "green");
+    adicionarComandosP1(andarPersonsagem, "#7c7c7c96 ", "bi-arrow-up");
   } else if (verificarOptionDep() === optionP2) {
-    adicionarComandosP2(andarPersonsagem, "green");
+    adicionarComandosP2(andarPersonsagem, "#7c7c7c96 ", "bi-arrow-up");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
 });
 girarEsq.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(girarPersonagemEsq, "blue");
+    adicionarComandosMain(girarPersonagemEsq, "#7c7c7c96 ", "bi-arrow-clockwise");
   } else if (verificarOptionDep() === optionP1) {
-    adicionarComandosP1(girarPersonagemEsq, "blue");
+    adicionarComandosP1(girarPersonagemEsq, "#7c7c7c96 ", "bi-arrow-clockwise");
   } else if (verificarOptionDep() === optionP2) {
-    adicionarComandosP2(girarPersonagemEsq, "blue");
+    adicionarComandosP2(girarPersonagemEsq, "#7c7c7c96 ", "bi-arrow-clockwise");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
 });
 girarDir.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(girarPersonagemDir, "blue");
+    adicionarComandosMain(girarPersonagemDir, "#7c7c7c96 ", "bi-arrow-counterclockwise");
   } else if (verificarOptionDep() === optionP1) {
-    adicionarComandosP1(girarPersonagemDir, "blue");
+    adicionarComandosP1(girarPersonagemDir, "#7c7c7c96 ", "bi-arrow-counterclockwise");
   } else if (verificarOptionDep() === optionP2) {
-    adicionarComandosP2(girarPersonagemDir, "blue");
+    adicionarComandosP2(girarPersonagemDir, "#7c7c7c96 ", "bi-arrow-counterclockwise");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
 });
 lightBox.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(acenderCasa, "yellow");
+    adicionarComandosMain(acenderCasa, "#7c7c7c96 ", "bi-lightbulb");
   } else if (verificarOptionDep() === optionP1) {
-    adicionarComandosP1(acenderCasa, "yellow");
+    adicionarComandosP1(acenderCasa, "#7c7c7c96 ", "bi-lightbulb");
   } else if (verificarOptionDep() === optionP2) {
-    adicionarComandosP2(acenderCasa, "yellow");
+    adicionarComandosP2(acenderCasa, "#7c7c7c96 ", "bi-lightbulb");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
 });
 p1Button.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(callP1, "pink");
+    adicionarComandosMain(callP1, "#7c7c7c96 ", "p1");
   } else if (verificarOptionDep() === optionP1) {
     alert("É posivel adicionar P1 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
@@ -179,7 +203,7 @@ p1Button.addEventListener("click", () => {
 });
 p2Button.addEventListener("click", () => {
   if (verificarOptionDep() === optionMain) {
-    adicionarComandosMain(callP2, "pink");
+    adicionarComandosMain(callP2, "#7c7c7c96 ", "p2");
   } else if (verificarOptionDep() === optionP1) {
     alert("É posivel adicionar P2 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
@@ -219,7 +243,6 @@ startButton.addEventListener("click", () => {
   p2Button.style.display = "none";
   lightBox.style.display = "none";
   startButton.style.display = "none";
-  returnButton.style.display = "none"
 });
 
 optionMain.addEventListener("click", () => {

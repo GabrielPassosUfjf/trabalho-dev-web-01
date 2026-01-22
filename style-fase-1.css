@@ -112,6 +112,10 @@ main {
   border-radius: 5px;
 }
 
+.icon-comando{
+  font-size: 2rem;
+}
+
 #moveButton:hover,
 #girarEsq:hover,
 #girarDir:hover,
@@ -176,8 +180,10 @@ button > i {
   background-color: #00000096;
   width: 3.2rem;
   height: 3.2rem;
-  display: inline-block;
+  display: flex;
   padding: 0px;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonsBlock {
