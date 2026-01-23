@@ -9,6 +9,8 @@ const retryButton = document.getElementById("retryButton");
 const faseButton = document.getElementById("faseButton");
 const startButton = document.getElementById("startExec");
 const returnButton = document.getElementById("returnButton")
+const person = document.getElementById("person");
+const theEnd = document.getElementById("theEnd");
 
 const optionMain = document.getElementById("optionMain");
 const optionP1 = document.getElementById("optionP1");
@@ -18,31 +20,34 @@ const boxes = document.querySelectorAll(".box"); //transforma os elementos em um
 const boxesMain = document.querySelectorAll(".boxMain");
 const boxesP1 = document.querySelectorAll(".boxP1");
 const boxesP2 = document.querySelectorAll(".boxP2");
-const person = document.getElementById("person");
 
-const theEnd = document.getElementById("theEnd");
-
+const gridSize = Math.sqrt(Math.abs(boxes.length));
 let positionX = 0;
 let positionY = 0;
-const gridSize = 5;
-
-//boxes[0].appendChild(person);
-
 let boxIllumination = 0;
 let rotacao = 0;
 
-function updatePosition() {
+const end= boxes.length - 3;
+boxes[end].appendChild(theEnd);
+
+function updatePosition(ultimoComando) {
+  console.log(boxes)
+  console.log(comandos)
   const loc = positionY * gridSize + positionX;
   boxes[loc].appendChild(person);
 
   boxIllumination = boxes[loc];
 
-  if (loc === 22) {
+  if (loc === end && ultimoComando) {
     theEnd.style.display = "none";
     setTimeout(() => {
       alert("🎉 Parabéns! Você chegou ao final!");
       faseButton.style.display = "inline-block";
-      retryButton.style.display = "inline-block";
+    }, 100);
+  }
+  else if(loc !== end && ultimoComando) {
+    setTimeout(() => {
+    alert("Infelizmente você não conseguiu!")
     }, 100);
   }
 }
@@ -270,7 +275,7 @@ startButton.addEventListener("click", () => {
         return;
       }
 
-      updatePosition();
+      updatePosition(i === filaExec.length-1);
       person.style.transform = `rotate(${rotacao}deg)`;
       i++;
     }
@@ -309,84 +314,3 @@ function verificarOptionDep() {
     return false;
   }
 }
-
-// andar.addEventListener("click", () => {
-//   if (rotacao === 0 || rotacao % 360 === 0) {
-//     if (positionY < gridSize - 1) {
-//       positionY++;
-//       updatePosition();
-//     }
-//   } else if (rotacao === 90 || rotacao === -270) {
-//     if (positionX > 0) {
-//       positionX--;
-//       updatePosition();
-//     }
-//   } else if (rotacao === -90 || rotacao === 270) {
-//     if (positionX < gridSize - 1) {
-//       positionX++;
-//       updatePosition();
-//     }
-//   } else if (rotacao === 180 || rotacao === -180) {
-//     if (positionY > 0) {
-//       positionY--;
-//       updatePosition();
-//     }
-//   }
-// });
-
-// let rotacao = 0;
-
-// girarEsq.addEventListener("click", () => {
-//   console.log(rotacao);
-//   rotacao += 90;
-//   if (rotacao >= 360) {
-//     rotacao = 0;
-//   }
-//   person.style.transform = `rotate(${rotacao}deg)`;
-// });
-
-// girarDir.addEventListener("click", () => {
-//   console.log(rotacao);
-//   rotacao -= 90;
-//   if (rotacao <= -360) {
-//     rotacao = 0;
-//   }
-//   person.style.transform = `rotate(${rotacao}deg)`;
-// });
-
-// andar.addEventListener("click", () => {
-//   for (let i = ccm; i < 14; i++) {
-//     boxesMain[i].style.backgroundColor = "red";
-//     boxesMain[i] = andarPersonsagem();
-
-//     startButton.addEventListener("click", () => {
-//       updatePosition();
-//     });
-//     ccm++;
-//     break;
-//   }
-// });
-
-// girarEsq.addEventListener("click", () => {
-//   for (let i = ccm; i < 14; i++) {
-//     boxesMain[i].style.backgroundColor = "blue";
-//     boxesMain[i] = girarPersonagemEsq();
-//     startButton.addEventListener("click", () => {
-//       person.style.transform = `rotate(${rotacao}deg)`;
-//     });
-//     ccm++;
-//     break;
-//   }
-// });
-
-// girarDir.addEventListener("click", () => {
-//   for (let i = ccm; i < 14; i++) {
-//     boxesMain[i].style.backgroundColor = "blue";
-//     boxesMain[i] = girarPersonagemDir();
-//     startButton.addEventListener("click", () => {
-//       person.style.transform = `rotate(${rotacao}deg)`;
-//     });
-//     ccm++;
-//     break;
-//   }
-// });
