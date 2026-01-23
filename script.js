@@ -1,11 +1,12 @@
-const andar = document.getElementById("moveButton");
 const girarEsq = document.getElementById("girarEsq");
+const andar = document.getElementById("moveButton");
 const girarDir = document.getElementById("girarDir");
 const lightBox = document.getElementById("lightButton");
-const retryButton = document.getElementById("retryButton");
-const faseButton = document.getElementById("faseButton");
 const p1Button = document.getElementById("p1Button");
 const p2Button = document.getElementById("p2Button");
+const jumpButton = document.getElementById("jumpButton")
+const retryButton = document.getElementById("retryButton");
+const faseButton = document.getElementById("faseButton");
 const startButton = document.getElementById("startExec");
 const returnButton = document.getElementById("returnButton")
 
@@ -117,8 +118,6 @@ function adicionarComandosMain(funcao, cor, iconClass) {
     ccm++;
   }
 }
-
-
 
 function adicionarComandosP1(funcao, cor, iconClass) {
   if (ccp1 < boxesP1.length) {
@@ -243,6 +242,7 @@ startButton.addEventListener("click", () => {
   p2Button.style.display = "none";
   lightBox.style.display = "none";
   startButton.style.display = "none";
+  jumpButton.style.display = "none";
 });
 
 optionMain.addEventListener("click", () => {

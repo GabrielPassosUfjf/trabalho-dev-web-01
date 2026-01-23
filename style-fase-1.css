@@ -104,7 +104,8 @@ main {
 #girarDir,
 #lightButton,
 #p1Button,
-#p2Button {
+#p2Button,
+#jumpButton {
   background-color: #ffffff96;
   font-size: 3rem;
   height: 5rem;
@@ -112,7 +113,11 @@ main {
   border-radius: 5px;
 }
 
-.icon-comando{
+#jumpButton {
+  width: 10rem;
+}
+
+.icon-comando {
   font-size: 2rem;
 }
 
@@ -121,15 +126,20 @@ main {
 #girarDir:hover,
 #lightButton:hover,
 #p1Button:hover,
-#p2Button:hover {
+#p2Button:hover,
+#jumpButton:hover {
   background-color: #ffffffd7;
   font-size: 3rem;
   height: 5.5rem;
   width: 5.5rem;
   transform: translate(0px, -4px);
   border-radius: 5px;
-  cursor: p;
+  cursor: pointer;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.425);
+}
+
+#jumpButton:hover {
+  width: 12rem;
 }
 
 button > i {
@@ -317,80 +327,84 @@ input[type="radio"] {
     margin: 0rem 2rem 0rem 1rem;
   }
   input[type="radio"] {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  accent-color: #1500ff;
-  cursor: pointer;
-}
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    accent-color: #1500ff;
+    cursor: pointer;
+  }
 }
 
-@media (max-width: 630px){
-   .mainFase {
+@media (max-width: 630px) {
+  .mainFase {
     display: grid;
   }
   .mainBlock,
   .p1Block,
   .p2Block {
     max-width: 20rem;
-} 
+  }
 
-.boxMain,
-.boxP1,
-.boxP2 {
-  background-color: #00000096;
-  width: 1.412rem;
-  height: 1.412rem;
-  display: inline-block;
-  padding: 0px;
-}
-.buttonsTheControl{
-  display: grid;
-  grid-template-columns: repeat(3, 0fr);
-  grid-template-rows: repeat(2, 0fr);
-}
-#moveButton,
-#girarEsq,
-#girarDir,
-#lightButton,
-#p1Button,
-#p2Button {
-  background-color: #ffffff96;
-  font-size: 2rem;
-  height: 4rem;
-  width: 4rem;
-}
-#moveButton:hover,
-#girarEsq:hover,
-#girarDir:hover,
-#lightButton:hover,
-#p1Button:hover,
-#p2Button:hover {
-  font-size: 2rem;
-  background-color: #ffffffd7;
-  height: 4rem;
-  width: 4rem;
-  transform: translate(0px, -4px);
-  border-radius: 5px;
-
-
-}
-button > i {
-  font-size: 2rem;
-}
-.optionsDep > p {
-  display: none;
-}
-.optionsDep > label {
-  font-size: 1.5rem;
-  margin: 0px 15px 0px 5px;
-}
-input[type="radio"] {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  accent-color: #1500ff;
-  cursor: pointer;
-}
-
+  .boxMain,
+  .boxP1,
+  .boxP2 {
+    background-color: #00000096;
+    width: 1.412rem;
+    height: 1.412rem;
+    display: inline-block;
+    padding: 0px;
+  }
+  .buttonsTheControl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    justify-items: center;
+  }
+  #moveButton,
+  #girarEsq,
+  #girarDir,
+  #lightButton,
+  #p1Button,
+  #p2Button,
+  #jumpButton {
+    background-color: #ffffff96;
+    font-size: 2rem;
+    height: 4rem;
+    width: 100%;
+  }
+  #jumpButton {
+    grid-column: -1 / 1;
+    width: 100%;
+  }
+  #moveButton:hover,
+  #girarEsq:hover,
+  #girarDir:hover,
+  #lightButton:hover,
+  #p1Button:hover,
+  #p2Button:hover,
+  #jumpButton:hover {
+    font-size: 2rem;
+    background-color: #ffffffd7;
+    height: 4rem;
+    width: 100%;
+    transform: translate(0px, -4px);
+    border-radius: 5px;
+  }
+  button > i {
+    font-size: 2rem;
+  }
+  .optionsDep > p {
+    display: none;
+  }
+  .optionsDep > label {
+    font-size: 1.5rem;
+    margin: 0px 15px 0px 5px;
+  }
+  input[type="radio"] {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    accent-color: #1500ff;
+    cursor: pointer;
+  }
 }
