@@ -85,6 +85,26 @@ function acenderCasa() {
   boxIllumination.style.backgroundColor = "yellow";
 }
 
+function pularCasa() {
+  if (rotacao === 0) {
+    if (positionY < gridSize - 1) {
+      positionY += 2;
+    }
+  } else if (rotacao === 90 || rotacao === -270) {
+    if (positionX > 0) {
+      positionX -= 2;
+    }
+  } else if (rotacao === -90 || rotacao === 270) {
+    if (positionX < gridSize - 1) {
+      positionX += 2;
+    }
+  } else if (rotacao === 180 || rotacao === -180) {
+    if (positionY > 0) {
+      positionY -= 2;
+    }
+  }
+}
+
 let ccm = 0; //contadorCasaMain
 let ccp1 = 0; //contadorCasaP1
 let ccp2 = 0; //contadorCasaP2
@@ -107,7 +127,9 @@ function adicionarComandosMain(funcao, cor, iconClass) {
     if (iconClass === "p1") {
       boxesMain[ccm].innerHTML = "P1 ";
     } else if (iconClass === "p2") {
-      boxesMain[ccm].innerHTML = "P2"
+      boxesMain[ccm].innerHTML = "P2";
+    } else if (iconClass === "jump") {
+      boxesMain[ccm].innerHTML = "J";
     } else {
 
       const icon = document.createElement("i");
@@ -124,10 +146,15 @@ function adicionarComandosP1(funcao, cor, iconClass) {
     comandosP1.push(funcao);
     boxesP1[ccp1].style.backgroundColor = cor;
 
-    const icon = document.createElement("i");
-    icon.classList.add("bi", iconClass, "icon-comando");
+    if (iconClass === "jump") {
+      boxesP1[ccp1].innerHTML = "J";
+    } else {
 
-    boxesP1[ccp1].appendChild(icon);
+      const icon = document.createElement("i");
+      icon.classList.add("bi", iconClass, "icon-comando");
+
+      boxesP1[ccp1].appendChild(icon);
+    }
     ccp1++;
   }
 }
@@ -137,10 +164,14 @@ function adicionarComandosP2(funcao, cor, iconClass) {
     comandosP2.push(funcao);
     boxesP2[ccp2].style.backgroundColor = cor;
 
-    const icon = document.createElement("i");
-    icon.classList.add("bi", iconClass, "icon-comando");
+    if (iconClass === "jump") {
+      boxesP2[ccp2].innerHTML = "J";
+    } else {
+      const icon = document.createElement("i");
+      icon.classList.add("bi", iconClass, "icon-comando");
 
-    boxesP2[ccp2].appendChild(icon);
+      boxesP2[ccp2].appendChild(icon);
+    }
     ccp2++;
   }
 }
@@ -207,6 +238,17 @@ p2Button.addEventListener("click", () => {
     alert("É posivel adicionar P2 somente na Main");
   } else if (verificarOptionDep() === optionP2) {
     alert("É posivel adicionar P2 somente na Main");
+  } else {
+    alert("Escolha entre: Main, P1 e P2");
+  }
+});
+jumpButton.addEventListener("click", () => {
+  if (verificarOptionDep() === optionMain) {
+    adicionarComandosMain(pularCasa, "#7c7c7c96 ", "jump");
+  } else if (verificarOptionDep() === optionP1) {
+    adicionarComandosP1(pularCasa, "#7c7c7c96 ", "jump");
+  } else if (verificarOptionDep() === optionP2) {
+    adicionarComandosP2(pularCasa, "#7c7c7c96 ", "jump");
   } else {
     alert("Escolha entre: Main, P1 e P2");
   }
