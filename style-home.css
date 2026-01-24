@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url(imagens/fundo-pikachu.jpg);
+    background-image: url(./Imagens/fundo-pikachu.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -73,4 +73,14 @@ header > h2 {
   100% {
     transform: scale(1);
   }
+}
+
+@media (max-width: 560px) {
+#playButton {
+    width: 22rem;
+    height: 8rem;
+}
+#playButton > a {
+    font-size: 3rem;
+}
 }
