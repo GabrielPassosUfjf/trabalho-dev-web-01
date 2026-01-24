@@ -39,7 +39,7 @@ main {
 
 .mapaContainer {
   display: grid;
-  grid-template-columns: repeat(5, 0fr);
+  grid-template-columns: repeat(5, 01fr);
   grid-template-rows: repeat(5, 0fr);
 }
 
@@ -64,8 +64,11 @@ main {
 #theEnd {
   width: 5rem;
 }
-
-#theEnd {
+#pokebola {
+  width: 4rem;
+}
+#theEnd,
+#pokebola {
   animation: pulse 2s infinite;
 }
 

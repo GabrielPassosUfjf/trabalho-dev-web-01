@@ -27,9 +27,6 @@ let positionY = 0;
 let boxIllumination = 0;
 let rotacao = 0;
 
-const end= boxes.length - 3;
-boxes[end].appendChild(theEnd);
-
 function updatePosition(ultimoComando) {
   console.log(boxes)
   console.log(comandos)
@@ -38,16 +35,25 @@ function updatePosition(ultimoComando) {
 
   boxIllumination = boxes[loc];
 
-  if (loc === end && ultimoComando) {
-    theEnd.style.display = "none";
+  if (boxes[loc].classList.contains("pokeClass")) {
+    person.style.display = "none";
     setTimeout(() => {
-      alert("🎉 Parabéns! Você chegou ao final!");
+      alert("Seu pokemon foi capturado! GAMER OVER");
+      return;
+    }, 100)
+  }
+  else if (boxes[loc].id === "endBox" && ultimoComando) {
+    theEnd.style.display = "none"
+    setTimeout(() => {
+      alert("🎉 Parabéns! Você chegou ao final! Vá para o próximo nível.");
       faseButton.style.display = "inline-block";
+      return;
     }, 100);
   }
-  else if(loc !== end && ultimoComando) {
+  else if (boxes[loc].id !== "endBox" && ultimoComando) {
     setTimeout(() => {
-    alert("Infelizmente você não conseguiu!")
+      alert("Infelizmente você não conseguiu! Tente novamente.")
+      return;
     }, 100);
   }
 }
@@ -275,7 +281,7 @@ startButton.addEventListener("click", () => {
         return;
       }
 
-      updatePosition(i === filaExec.length-1);
+      updatePosition(i === filaExec.length - 1);
       person.style.transform = `rotate(${rotacao}deg)`;
       i++;
     }
