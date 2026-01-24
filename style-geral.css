@@ -27,14 +27,14 @@ header > h1 {
 }
 
 main {
-  padding: 0px 10rem;
+   padding: 0rem 1rem;
   margin: auto;
 }
 
 .mainFase {
   display: flex;
   justify-content: center;
-  gap: 6rem;
+  gap: 4rem;
   margin-top: 2rem;
 }
 
@@ -84,7 +84,11 @@ main {
     transform: scale(1);
   }
 }
-
+.buttonsTheControl,
+.optionsDep {
+  max-width: 50rem;
+  margin: 2rem auto;
+}
 .buttonsTheControl {
   display: flex;
   gap: 0.5rem;
@@ -160,6 +164,7 @@ button > i {
   border-radius: 2rem;
   height: 4rem;
   margin-left: 2rem;
+  text-decoration: none;
 }
 
 .mainBlock,

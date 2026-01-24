@@ -1,0 +1,135 @@
+
+.mapaContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 0fr);
+  grid-template-rows: repeat(7, 0fr);
+}
+
+.box {
+  width: 5em;
+  height: 5em;
+}
+
+#person,
+#theEnd {
+  width: 4rem;
+}
+#pokebola {
+  width: 3rem;
+}
+
+.mainBlock,
+.p1Block,
+.p2Block {
+  max-width: 32.2rem;
+  border: solid black 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.boxMain,
+.boxP1,
+.boxP2 {
+  background-color: #00000096;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+ #startExec {
+    width: 17rem;
+  }
+  
+ #returnButton{
+    width: 14rem;
+  }
+
+@media (max-width: 1200px) {
+  .box {
+    width: 4rem;
+    height: 4rem;
+  }
+  .mainFase {
+    gap: 2rem;
+  }
+  #person,
+  #theEnd {
+    width: 3rem;
+  }
+  #pokebola {
+    width: 2rem;
+  }
+  .mainBlock,
+  .p1Block,
+  .p2Block {
+    max-width: 21.2rem;
+    border: solid black 0.1rem;
+    margin-bottom: 1rem;
+  }
+  .boxMain,
+  .boxP1,
+  .boxP2 {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .icon-comando {
+    font-size: 1.5rem;
+  }
+
+  #startExec,
+  #returnButton {
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+
+   #startExec {
+    width: 10rem;
+  }
+  
+ #returnButton{
+    width: 10rem;
+  }
+}
+
+@media (max-width: 890px) {
+  .mainFase {
+    display: grid;
+    justify-items: center;
+  }
+  .buttonsBlock {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  #startExec,
+  #returnButton {
+    width: 160px;
+  }
+}
+
+@media (max-width: 630px) {
+  .buttonsTheControl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    justify-items: center;
+  }
+
+  .box {
+    width: 3rem;
+    height: 3rem;
+  }
+ 
+  #person,
+  #theEnd {
+    width: 2.5  rem;
+  }
+  #pokebola {
+    width: 2rem;
+  }
+
+}
