@@ -39,6 +39,7 @@ function updatePosition(ultimoComando) {
     person.style.display = "none";
     setTimeout(() => {
       alert("Seu pokemon foi capturado! GAMER OVER");
+      resetGame();
       return;
     }, 100)
   }
@@ -266,6 +267,9 @@ jumpButton.addEventListener("click", () => {
 });
 
 startButton.addEventListener("click", () => {
+  const locInicial = positionY * gridSize + positionX;
+  boxIllumination = boxes[locInicial];
+
   let i = 0;
   let filaExec = [...comandos];
   const intervalo = setInterval(() => {
@@ -319,4 +323,49 @@ function verificarOptionDep() {
   } else {
     return false;
   }
+}
+
+function resetGame() {
+  positionX = 0;
+  positionY = 0;
+  rotacao = 0;
+  boxIllumination = 0;
+
+  comandos = [];
+  comandosP1 = [];
+  comandosP2 = [];
+  ccm = 0;
+  ccp1 = 0;
+  ccp2 = 0;
+
+  boxesMain.forEach(box => {
+    box.style.backgroundColor = "";
+    box.innerHTML = "";
+  });
+
+  boxesP1.forEach(box => {
+    box.style.backgroundColor = "";
+    box.innerHTML = "";
+  });
+
+  boxesP2.forEach(box => {
+    box.style.backgroundColor = "";
+    box.innerHTML = "";
+  });
+
+  person.style.display = "block";
+  person.style.transform = "rotate(0deg)";
+  boxes[0].appendChild(person);
+
+  retryButton.style.display = "none";
+  faseButton.style.display = "none";
+
+  andar.style.display = "inline-block";
+  girarDir.style.display = "inline-block";
+  girarEsq.style.display = "inline-block";
+  p1Button.style.display = "inline-block";
+  p2Button.style.display = "inline-block";
+  lightBox.style.display = "inline-block";
+  startButton.style.display = "inline-block";
+  jumpButton.style.display = "inline-block";
 }
