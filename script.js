@@ -338,6 +338,10 @@ function resetGame() {
   ccp1 = 0;
   ccp2 = 0;
 
+  for(let i = 0 ; i < 25 ; i++){
+    boxes[i].style.backgroundColor = "";
+  }
+
   boxesMain.forEach(box => {
     box.style.backgroundColor = "";
     box.innerHTML = "";
