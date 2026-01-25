@@ -84,3 +84,10 @@ header > h2 {
     font-size: 3rem;
 }
 }
+
+@media (max-width: 730px) {
+    body{
+        background-image: url(./Imagens/fundo-pikachu-mob.png);
+        background-position: right;
+    }
+} 
