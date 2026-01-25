@@ -27,7 +27,7 @@ header > h1 {
 }
 
 main {
-   padding: 0rem 1rem;
+  padding: 0rem 1rem;
   margin: auto;
 }
 
@@ -160,11 +160,16 @@ button > i {
 #retryButton {
   font-size: 1.5rem;
   display: none;
-  width: 10rem;
+  width: 16rem;
   border-radius: 2rem;
   height: 4rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+#faseButton > a,
+#retryButton > a {
   text-decoration: none;
+  font-size: 1.5rem;
+  color: #000000;
 }
 
 .mainBlock,
@@ -367,12 +372,24 @@ input[type="radio"] {
     height: 1.412rem;
     padding: 0px;
   }
-  .buttonsBlock{
+  .buttonsBlock {
     display: flex;
     justify-content: center;
     margin: auto;
   }
-  #startExec, #returnButton{
+  #faseButton,
+  #retryButton {
+    width: 9rem;
+    height: 2.3rem;
+  }
+  #faseButton > a,
+  #retryButton > a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #000000;
+  }
+  #startExec,
+  #returnButton {
     width: 150px;
   }
   .icon-comando {
